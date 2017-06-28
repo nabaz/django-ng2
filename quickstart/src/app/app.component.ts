@@ -7,11 +7,13 @@ import 'rxjs/Rx';
   selector: 'my-app',
   template: `<ul>
 	    <li *ngFor="let post of result"><a href="{{post.url}}">{{post.title}}</a></li>
-	  </ul>`,
+	  </ul>
+  <router-outlet></router-outlet>`,
   providers: [DjangoService]
 })
 
 export class AppComponent { 
+  result: string;
   title: string;
   constructor(http: Http, private _dj: DjangoService){
     this._dj.getPost()

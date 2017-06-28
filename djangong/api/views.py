@@ -6,12 +6,12 @@ from api.models import Post
 from api.serializes import PostSerializer
 import pdb
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def post_list(request):
+    print(request)
     if request.method = 'GET':
         posts = Post.objects.all()
         serializer = PostSerializer(posts, many=True)
-
         return Response(serializer.data)
 
     elif request.method == 'POST':
@@ -21,4 +21,9 @@ def post_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method = 'DELETE':
+        posts.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
