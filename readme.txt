@@ -1,11 +1,9 @@
 # to install django run the following
-```
-install.sh
-```
+## install.sh
 
 ### make sure you change the port inside the setting.py to whatever port frontend uses
 ```
-CORS_ORIGIN_WHITELIST = ( 
+CORS_ORIGIN_WHITELIST = (
         'localhost:3000', //change to ng port
 
 )
@@ -14,11 +12,8 @@ CORS_ORIGIN_WHITELIST = (
 
 # frontend
 ## run the following
-```
-npm install
-```
+```npm install```
+
 and then
 
-```
- npm run 
- ```
+```npm run server```
